@@ -5,11 +5,16 @@
         <i class="material-icons delete" @click="deletegame(game.id)">delete</i>
         <h2 class="indigo-text">{{ game.title }}</h2>
         <ul class="factions">
-          <li v-for="(fac, index) in game.factions" :key="index">
+          <li v-for="(fac, index) in game.faction" :key="index">
             <span class="chip">{{ fac }}</span>
           </li>
         </ul>
       </div>
+      <span class="btn-floating btn-large halfway-fab grey">
+        <router-link :to="{name: 'EditGame', params: {game_slug: game.slug}}">
+          <i class="material-icons edit">edit</i>
+        </router-link>
+      </span>
     </div>
   </div>
 </template>
