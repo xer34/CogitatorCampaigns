@@ -6,7 +6,7 @@
         <label for="title">Title</label>
         <input class="white-text" type="text" name="title" v-model="title">
       </div>
-      <div v-for="(fac, index) in faction" :key="index" class="field white-text ">
+      <div v-for="(fac, index) in faction" :key="index" class="field white-text">
         <label for="factions">Factions</label>
         <input class="white-text" type="text" name="factions" v-model="faction[index]">
         <i class="material-icons delete" @click="deleteFac(fac)">delete</i>
@@ -20,7 +20,6 @@
         @keydown.tab.prevent="addFac"
         v-model="another"
       >
-
       <div class="field center-align">
         <p v-if="feedback" class="red-text">{{ feedback }}</p>
         <button class="btn grey">Add Game</button>
@@ -32,7 +31,6 @@
 <script>
 import db from "@/firebase/init";
 import slugify from "slugify";
-
 export default {
   name: "AddCampaign",
   data() {
@@ -49,7 +47,6 @@ export default {
       console.log(this.title, this.factions);
       if (this.title) {
         this.feedback = null;
-
         //create a slug
         this.slug = slugify(this.title, {
           replacement: "-",
@@ -90,7 +87,6 @@ export default {
   }
 };
 </script>
-
 <style>
 html {
   background-image: url("../assets/tilebackground.png");
